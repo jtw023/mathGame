@@ -1,0 +1,16 @@
+<form [formGroup]="mathForm">
+  <div class="equation">{{ a }} + {{ b }} =</div>
+  <input
+    [ngClass]="{
+      correct: a + b === answer,
+      highlight:
+        (a + b != answer && a + b === answer + 1) ||
+        (a + b != answer && a + b === answer - 1)
+    }"
+    formControlName="answer"
+    type="number"
+  />
+</form>
+<div class="stats">
+  {{ secondsPerSolution | number: "1.1-3" }}
+</div>
